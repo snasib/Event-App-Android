@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Red Carpet</string>
+    <string name="app_name" translatable="false">Red Carpet</string>
     <string name="title_home">Home</string>
     <string name="title_search">Search</string>
     <string name="title_profile">Profile</string>
@@ -9,4 +9,27 @@
     <string name="sign_in_with_google">Sign in with Google</string>
     <string name="sign_in_with_facebook">Sign in with Facebook</string>
     <string name="login_idp_logo">App Logo</string>
+
+    <!--Email Login related-->
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_name">Name</string>
+    <string name="hint_surname">Surname</string>
+    <string name="next">Next</string>
+    <string name="error_password_length">Password must be 6 to 12 characters</string>
+    <string name="error_invalid_email">Invalid email address</string>
+    <string name="error_required_field">Field is required</string>
+    <string name="check_existing_accounts">Checking for existing accounts…</string>
+    <string name="welcome_back">Welcome Back!</string>
+    <string name="sign_in_enter_password">To sign in, please enter your password for that account.</string>
+    <string name="forgot_password">Forgot your password?</string>
+    <string name="sign_in">Sign In</string>
+    <string name="progress_signing_in">Signing in…</string>
+    <string name="send">Send</string>
+    <string name="password_recovery_follow_instructions">Follow instructions sent to this email that explain how to reset your password. And try again.</string>
+    <string name="create">Create</string>
+    <string name="create_a_new_user">Create a new user</string>
+    <string name="registering">Registering…</string>
+    <string name="password_is_weak">Password is weak</string>
+    <string name="user_with_email_already_exist">A user with this email address is already exists</string>
 </resources>

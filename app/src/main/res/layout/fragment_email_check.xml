@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".auth.email.EmailCheckFragment">
+
+    <LinearLayout
+        style="@style/AppTheme.WrapperStyle"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/check_email_layout"
+            style="@style/AppTheme.TextInputLayout.EmailField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:transitionGroup="true"
+            android:transitionName="email_field"
+            app:errorEnabled="true">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/check_email_edit"
+                style="@style/AppTheme.TextInputEditText.EmailField" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:id="@+id/check_email_next_bt"
+            style="@style/LoginUI.Button"
+            android:text="@string/next" />
+    </LinearLayout>
+</ScrollView>
