@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "353188029938",
+    "firebase_url": "https://redcarpet-6ce47.firebaseio.com",
+    "project_id": "redcarpet-6ce47",
+    "storage_bucket": "redcarpet-6ce47.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:353188029938:android:f742d55f33899f96",
+        "android_client_info": {
+          "package_name": "com.android.redcarpet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "353188029938-qe9kv2hqdh91h522uoatne5ncr5lq0hb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.android.redcarpet",
+            "certificate_hash": "c4c42ff841e34e85edbaa2fd8f0829665c906b87"
+          }
+        },
+        {
+          "client_id": "353188029938-ta5vb9d8bul9ch0gl1et61ehu4dg0s3i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYjYCn0c1GtSSABxzAqQcAwlnuv2yN98Y"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "353188029938-ta5vb9d8bul9ch0gl1et61ehu4dg0s3i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
