@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:radius="3dp" />
+            <solid android:color="@color/IdpButtonShadow" />
+        </shape>
+    </item>
+    <item
+        android:bottom="@dimen/idp_button_inset_bottom"
+        android:left="@dimen/idp_button_inset_left"
+        android:right="@dimen/idp_button_inset_right"
+        android:top="@dimen/idp_button_inset_top">
+        <shape android:shape="rectangle">
+            <corners android:radius="3dp" />
+            <solid android:color="@color/IdpButtonGoogleBg" />
+        </shape>
+    </item>
+</layer-list>

@@ -3,4 +3,10 @@
     <color name="colorPrimary">#ff6f00</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <!--Login Activity Buttons-->
+    <color name="IdpButtonShadow">#64BEBEBE</color>
+    <color name="IdpButtonEmailBg">#FFFF0000</color>
+    <color name="IdpButtonGoogleBg">#ffffff</color>
+    <color name="IdpButtonFacebookBg">#3b5998</color>
 </resources>

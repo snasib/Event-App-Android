@@ -7,4 +7,48 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!-- Login Activity UI styles -->
+    <style name="LoginUI" parent="AppTheme">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:buttonStyle">@style/LoginUI.Button</item>
+    </style>
+
+    <style name="LoginUI.Button" parent="@style/Widget.AppCompat.Button.Colored">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">end</item>
+    </style>
+
+    <style name="LoginUI.Button.AuthChooser">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:drawablePadding">12dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:paddingLeft">12dp</item>
+        <item name="android:paddingRight">12dp</item>
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:layout_marginBottom">4dp</item>
+        <item name="android:gravity">left|center_vertical</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:foreground">?android:attr/selectableItemBackground</item>
+    </style>
+
+    <style name="LoginUI.Button.AuthChooser.EmailButton">
+        <item name="android:background">@drawable/idp_button_background_email</item>
+        <item name="android:textColor">#FFFFFFFF</item>
+    </style>
+
+    <style name="LoginUI.Button.AuthChooser.GoogleButton">
+        <item name="android:background">@drawable/idp_button_background_google</item>
+        <item name="android:textColor">#757575</item>
+    </style>
+
+    <style name="LoginUI.Button.AuthChooser.FacebookButton">
+        <item name="android:background">@drawable/idp_button_background_facebook</item>
+        <item name="android:textColor">#FFFFFFFF</item>
+    </style>
+
 </resources>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="@dimen/activity_horizontal_margin"
+    tools:context=".LoginActivity">
+
+    <Button
+        android:id="@+id/bt_idp_email"
+        style="@style/LoginUI.Button.AuthChooser.EmailButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_email_white_24dp"
+        android:text="@string/sign_in_with_email" />
+
+    <Button
+        android:id="@+id/bt_idp_google"
+        style="@style/LoginUI.Button.AuthChooser.GoogleButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_google_color_24dp"
+        android:text="@string/sign_in_with_google" />
+
+    <Button
+        android:id="@+id/bt_idp_facebook"
+        style="@style/LoginUI.Button.AuthChooser.FacebookButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_facebook_white_22dp"
+        android:text="@string/sign_in_with_facebook" />
+</LinearLayout>
