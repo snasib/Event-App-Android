@@ -2,14 +2,18 @@ package com.android.redcarpet;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.android.redcarpet.auth.email.EmailActivity;
+import com.android.redcarpet.auth.google.GoogleFragment;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
-    public static final String TAG = LoginActivity.class.getSimpleName();
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener, GoogleFragment.OnGoogleFragmentListener {
+    private static final String TAG = LoginActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,12 +46,33 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 createIntent(EmailActivity.class);
                 return;
             case R.id.bt_idp_google:
+                signInWithGoogle();
                 return;
             case R.id.bt_idp_facebook:
         }
     }
 
+    private void signInWithGoogle() {
+        Log.i(TAG, "signInWithGoogle: ");
+        GoogleFragment fragment = new GoogleFragment();
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.add(fragment, GoogleFragment.TAG);
+        transaction.commit();
+    }
+
     private void createIntent(Class<?> targetClass) {
+        Log.i(TAG, "createIntent: ");
         startActivity(new Intent(LoginActivity.this, targetClass));
+    }
+
+    @Override
+    public void onGoogleSignInComplete(int resultCode) {
+        Log.i(TAG, "onGoogleSignInComplete: " + resultCode);
+        if (resultCode == GoogleFragment.RESULT_OK) {
+            Toast.makeText(this, R.string.google_sign_in_success, Toast.LENGTH_SHORT).show();
+            finish();
+        } else {
+            Toast.makeText(this, R.string.google_sign_in_failed, Toast.LENGTH_SHORT).show();
+        }
     }
 }

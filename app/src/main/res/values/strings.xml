@@ -32,4 +32,6 @@
     <string name="registering">Registering…</string>
     <string name="password_is_weak">Password is weak</string>
     <string name="user_with_email_already_exist">A user with this email address is already exists</string>
+    <string name="google_sign_in_failed">Google sign in failed</string>
+    <string name="google_sign_in_success">Google sign in successful</string>
 </resources>
