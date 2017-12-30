@@ -34,4 +34,11 @@
     <string name="user_with_email_already_exist">A user with this email address is already exists</string>
     <string name="google_sign_in_failed">Google sign in failed</string>
     <string name="google_sign_in_success">Google sign in successful</string>
+    <!--Facebook Login-->
+    <string name="facebook_app_id">316730305502815</string>
+    <string name="fb_login_protocol_scheme">fb316730305502815</string>
+    <string name="fb_logged_in">Logged in with Facebook</string>
+    <string name="fb_failed">Facebook authentication failed</string>
+    <string name="fb_cancelled">Facebook log in cancelled</string>
+
 </resources>

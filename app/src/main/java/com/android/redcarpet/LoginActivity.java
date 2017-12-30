@@ -9,10 +9,11 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.android.redcarpet.auth.email.EmailActivity;
+import com.android.redcarpet.auth.facebook.FacebookFragment;
 import com.android.redcarpet.auth.google.GoogleFragment;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener, GoogleFragment.OnGoogleFragmentListener {
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener, GoogleFragment.OnGoogleFragmentListener, FacebookFragment.OnFacebookInteractionListener {
     private static final String TAG = LoginActivity.class.getSimpleName();
 
     @Override
@@ -49,7 +50,16 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 signInWithGoogle();
                 return;
             case R.id.bt_idp_facebook:
+                signInWithFacebook();
         }
+    }
+
+    private void signInWithFacebook() {
+        Log.i(TAG, "signInWithFacebook: ");
+        FacebookFragment fragment = new FacebookFragment();
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.add(fragment, FacebookFragment.TAG);
+        transaction.commit();
     }
 
     private void signInWithGoogle() {
@@ -73,6 +83,22 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             finish();
         } else {
             Toast.makeText(this, R.string.google_sign_in_failed, Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public void onFacebookSignInComplete(int resultCode) {
+        Log.i(TAG, "onFacebookSignInComplete: ");
+        switch (resultCode) {
+            case FacebookFragment.RESULT_OK:
+                Toast.makeText(this, R.string.fb_logged_in, Toast.LENGTH_SHORT).show();
+                finish();
+                return;
+            case FacebookFragment.RESULT_FAIL:
+                Toast.makeText(this, R.string.fb_failed, Toast.LENGTH_SHORT).show();
+                return;
+            case FacebookFragment.RESULT_CANCEL:
+                Toast.makeText(this, R.string.fb_cancelled, Toast.LENGTH_SHORT).show();
         }
     }
 }
