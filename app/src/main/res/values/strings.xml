@@ -40,5 +40,11 @@
     <string name="fb_logged_in">Logged in with Facebook</string>
     <string name="fb_failed">Facebook authentication failed</string>
     <string name="fb_cancelled">Facebook log in cancelled</string>
+    <string name="personal_details">Personal Details</string>
+    <string name="save_edits">Save edits</string>
+    <string name="reset_password">Reset password</string>
+    <string name="sign_out">Sign out</string>
+    <string name="delete_account">Delete account</string>
+    <string name="reset_pass_sending">Sending…</string>
 
 </resources>

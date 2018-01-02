@@ -9,4 +9,8 @@
     <color name="IdpButtonEmailBg">#FFFF0000</color>
     <color name="IdpButtonGoogleBg">#ffffff</color>
     <color name="IdpButtonFacebookBg">#3b5998</color>
+
+    <!--User Profile-->
+    <color name="circle_color">#000000</color>
+    <color name="circle_transparent">#00000000</color>
 </resources>

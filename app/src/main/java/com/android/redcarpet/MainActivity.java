@@ -1,10 +1,13 @@
 package com.android.redcarpet;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+
+import com.android.redcarpet.profile.UserProfileActivity;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
@@ -17,13 +20,17 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mBottomNavigation = (BottomNavigationView) findViewById(R.id.navigation);
+        mBottomNavigation = findViewById(R.id.navigation);
         mBottomNavigation.setOnNavigationItemSelectedListener(this);
 
     }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.navigation_profile) {
+            startActivity(new Intent(this, UserProfileActivity.class));
+        }
         return true;
     }
 }
