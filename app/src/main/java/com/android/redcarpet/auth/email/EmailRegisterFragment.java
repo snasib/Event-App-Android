@@ -15,6 +15,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.redcarpet.R;
+import com.android.redcarpet.data.FirebaseHelper;
+import com.android.redcarpet.data.User;
 import com.android.redcarpet.util.ProgressDialogHolder;
 import com.android.redcarpet.util.Validator;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -26,6 +28,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.Objects;
 
@@ -39,7 +42,6 @@ public class EmailRegisterFragment extends android.app.Fragment implements View.
 
     private EditText mEmailField;
     private EditText mNameField;
-    private EditText mSurnameField;
     private EditText mPasswordField;
 
     private ProgressDialogHolder mProgress;
@@ -73,12 +75,10 @@ public class EmailRegisterFragment extends android.app.Fragment implements View.
 
         mEmailField = view.findViewById(R.id.register_email_edit);
         mNameField = view.findViewById(R.id.register_name_edit);
-        mSurnameField = view.findViewById(R.id.register_surname_edit);
         mPasswordField = view.findViewById(R.id.register_password_edit);
 
         mEmailField.setOnFocusChangeListener(this);
         mNameField.setOnFocusChangeListener(this);
-        mSurnameField.setOnFocusChangeListener(this);
         mPasswordField.setOnFocusChangeListener(this);
 
         if (!TextUtils.isEmpty(mEmail)) {
@@ -109,12 +109,10 @@ public class EmailRegisterFragment extends android.app.Fragment implements View.
 
         mEmailField.setError(null);
         mNameField.setError(null);
-        mSurnameField.setError(null);
         mPasswordField.setError(null);
 
         String email = mEmailField.getText().toString();
         String name = mNameField.getText().toString();
-        String surname = mSurnameField.getText().toString();
         String password = mPasswordField.getText().toString();
 
         boolean cancel = false;
@@ -128,10 +126,6 @@ public class EmailRegisterFragment extends android.app.Fragment implements View.
             cancel = true;
             focusView = mNameField;
         }
-        if (!Validator.isRequiredFieldValid(mSurnameField, surname)) {
-            cancel = true;
-            focusView = mSurnameField;
-        }
         if (!Validator.isPasswordValid(mPasswordField, password)) {
             cancel = true;
             focusView = mPasswordField;
@@ -141,17 +135,21 @@ public class EmailRegisterFragment extends android.app.Fragment implements View.
             focusView.requestFocus();
         } else {
             mProgress.showLoadingDialog(R.string.registering);
-            registerUser(email, password, name, surname);
+            registerUser(email, password, name);
         }
     }
 
-    private void registerUser(String email, String password, String name, String surname) {
+    private void registerUser(final String email, String password, final String name) {
         final FirebaseAuth auth = FirebaseAuth.getInstance();
         auth.createUserWithEmailAndPassword(email, password)
                 .addOnSuccessListener(Objects.requireNonNull(getActivity()), new OnSuccessListener<AuthResult>() {
                     @Override
                     public void onSuccess(AuthResult authResult) {
                         Toast.makeText(getActivity(), "User created", Toast.LENGTH_SHORT).show();
+                        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+                        if (currentUser != null) {
+                            FirebaseHelper.writeNewUser(currentUser, new User.Builder(currentUser).setName(name).build());
+                        }
                         mListener.onRegisterComplete(RESULT_OK);
                         Objects.requireNonNull(getActivity()).finish();
                     }
@@ -211,9 +209,6 @@ public class EmailRegisterFragment extends android.app.Fragment implements View.
                 return;
             case R.id.register_name_edit:
                 Validator.isRequiredFieldValid(mNameField, mNameField.getText().toString());
-                return;
-            case R.id.register_surname_edit:
-                Validator.isRequiredFieldValid(mSurnameField, mSurnameField.getText().toString());
                 return;
             case R.id.register_password_edit:
                 Validator.isPasswordValid(mPasswordField, mPasswordField.getText().toString());

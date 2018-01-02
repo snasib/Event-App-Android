@@ -8,6 +8,8 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 
+import com.android.redcarpet.data.FirebaseHelper;
+import com.android.redcarpet.data.User;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -20,6 +22,7 @@ import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 
@@ -89,6 +92,10 @@ public class FacebookFragment extends Fragment implements FacebookCallback<Login
                     @Override
                     public void onSuccess(AuthResult authResult) {
                         Log.d(TAG, "signInWithCredential:success");
+                        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+                        if (currentUser != null) {
+                            FirebaseHelper.writeNewUser(currentUser, new User.Builder(currentUser).build());
+                        }
                         mListener.onFacebookSignInComplete(RESULT_OK);
                     }
                 })

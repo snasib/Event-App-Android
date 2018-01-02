@@ -64,7 +64,7 @@ public class EmailPasswordActivity extends AppCompatActivity implements View.OnC
         String email = mEmailField.getText().toString();
 
         if (Validator.isEmailValid(mEmailField, email)) {
-            mProgress.showLoadingDialog("Sending...");
+            mProgress.showLoadingDialog(R.string.reset_pass_sending);
             resetPassword(email);
         } else {
             mEmailField.requestFocus();

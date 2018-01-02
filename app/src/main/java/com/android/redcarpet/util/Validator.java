@@ -1,5 +1,6 @@
 package com.android.redcarpet.util;
 
+import android.net.Uri;
 import android.support.design.widget.TextInputLayout;
 import android.util.Patterns;
 import android.widget.EditText;
@@ -73,4 +74,18 @@ public final class Validator {
         }
         return result;
     }
+
+    public static boolean isImageChosen(Uri imageUri) {
+        return imageUri != null;
+    }
+
+    public static boolean isDateValid(EditText editText, CharSequence charSequence) {
+        boolean result = charSequence != null && charSequence.length() == 16;
+        editText.setError(null);
+        if (!result) {
+            editText.setError(editText.getResources().getString(R.string.error_required_field));
+        }
+        return result;
+    }
+
 }

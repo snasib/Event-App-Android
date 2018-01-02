@@ -9,6 +9,8 @@ import android.support.v4.app.Fragment;
 import android.util.Log;
 
 import com.android.redcarpet.R;
+import com.android.redcarpet.data.FirebaseHelper;
+import com.android.redcarpet.data.User;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -122,6 +124,10 @@ public class GoogleFragment extends Fragment implements GoogleApiClient.OnConnec
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             Log.d(TAG, "signInWithCredential:success");
+                            FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+                            if (currentUser != null) {
+                                FirebaseHelper.writeNewUser(currentUser, new User.Builder(currentUser).build());
+                            }
                             mListener.onGoogleSignInComplete(RESULT_OK);
                         } else {
                             Log.e(TAG, "signInWithCredential:failure: " + Objects.requireNonNull(task.getException()).getMessage());
