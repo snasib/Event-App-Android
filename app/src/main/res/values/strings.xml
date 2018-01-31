@@ -46,5 +46,18 @@
     <string name="sign_out">Sign out</string>
     <string name="delete_account">Delete account</string>
     <string name="reset_pass_sending">Sending…</string>
+    <string name="create_event_title">Event Name</string>
+    <string name="even_create_organizer">Organizer</string>
+    <string name="event_create_date">Date</string>
+    <string name="event_create_loc">Location</string>
+    <string name="event_create_price">Price</string>
+    <string name="event_create_about">Description</string>
+    <string name="event_title_example">Hackathon</string>
+    <string name="event_organizer_example">University of Luxembourg</string>
+    <string name="event_date_Example">01.01.2018</string>
+    <string name="event_loc_example">Belval</string>
+    <string name="free_of_charge">Free</string>
+    <string name="about">About</string>
+    <string name="event_desc_example">This Hackathon organized by the University of Luxembourg.</string>
 
 </resources>

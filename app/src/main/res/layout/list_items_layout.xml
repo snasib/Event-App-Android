@@ -11,61 +11,49 @@
         android:id="@+id/list_event_pic"
         android:layout_width="350dp"
         android:layout_height="200dp"
-        android:layout_marginBottom="16dp"
-        android:layout_weight="1"
+        android:layout_marginTop="16dp"
         app:srcCompat="@drawable/com_facebook_profile_picture_blank_square"
         tools:ignore="ContentDescription" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_margin="16dp"
         android:layout_weight="1"
-        android:orientation="horizontal">
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/list_event_title"
+            style="@style/AppTheme.Text.Body"
+            android:layout_width="wrap_content"
+            android:text="@string/event_title_example" />
+
+        <TextView
+            android:id="@+id/list_event_organizer"
+            style="@style/AppTheme.Text.Body"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/event_organizer_example" />
 
         <TextView
             android:id="@+id/list_event_date"
             style="@style/AppTheme.Text.Body"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:drawablePadding="2dp"
             android:inputType="datetime"
             android:text="JAN 8"
             tools:ignore="TextViewEdits" />
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/list_event_loc"
+            style="@style/AppTheme.Text.Body"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/list_event_title"
-                style="@style/AppTheme.Text.Body"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/event_title_example" />
-
-            <TextView
-                android:id="@+id/list_event_organizer"
-                style="@style/AppTheme.Text.Body"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/event_organize_example" />
-
-            <TextView
-                android:id="@+id/list_event_loc"
-                style="@style/AppTheme.Text.Body"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:layout_weight="1"
-                android:drawablePadding="2dp"
-                android:drawableStart="@drawable/ic_location_black_24dp"
-                android:text="@string/event_loc_example" />
-        </LinearLayout>
+            android:layout_marginBottom="16dp"
+            android:drawablePadding="2dp"
+            android:drawableStart="@drawable/ic_location_black_24dp"
+            android:text="@string/event_loc_example" />
     </LinearLayout>
 
 </LinearLayout>

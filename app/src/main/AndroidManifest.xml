@@ -33,6 +33,8 @@
         <activity android:name=".LoginActivity" />
         <activity android:name=".auth.email.EmailActivity" />
         <activity android:name=".auth.email.EmailUserActivity" />
+        <activity android:name=".event.EventDetailActivity" />
+        <activity android:name=".event.EventCreateActivity" />
         <activity android:name=".auth.email.EmailPasswordActivity" />
         <activity android:name=".profile.UserProfileActivity" />
         <activity

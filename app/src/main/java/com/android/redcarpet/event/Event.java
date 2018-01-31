@@ -8,6 +8,7 @@ import com.google.firebase.database.IgnoreExtraProperties;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Objects;
 
 @IgnoreExtraProperties
 public class Event implements Parcelable {
@@ -51,6 +52,7 @@ public class Event implements Parcelable {
     }
 
     protected Event(Parcel in) {
+        uId = in.readString();
         photoUri = in.readString();
         title = in.readString();
         organizer = in.readString();
@@ -134,17 +136,8 @@ public class Event implements Parcelable {
     }
 
     @Override
-    public String toString() {
-        return "Event{" +
-                "photoUri='" + photoUri + '\'' +
-                ", title='" + title + '\'' +
-                ", organizer='" + organizer + '\'' +
-                ", date='" + date + '\'' +
-                ", location='" + location + '\'' +
-                ", price='" + price + '\'' +
-                ", description='" + description + '\'' +
-                ", dateCreated='" + dateCreated + '\'' +
-                '}';
+    public int hashCode() {
+        return Objects.hash(this.title, this.uId, this.dateCreated);
     }
 
     @Override
@@ -154,6 +147,7 @@ public class Event implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(uId);
         parcel.writeString(photoUri);
         parcel.writeString(title);
         parcel.writeString(organizer);

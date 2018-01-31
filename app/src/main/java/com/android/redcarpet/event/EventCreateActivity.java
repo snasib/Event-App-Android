@@ -208,7 +208,7 @@ public class EventCreateActivity extends AppCompatActivity implements View.OnCli
         if (user != null) {
             Event mEvent = new Event(user.getUid(), String.valueOf(downloadUrl), mTitle, mOrganizer, mDateTime, mLocation, mPrice, mAbout);
             DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference("events");
-            rootRef.push().setValue(mEvent)
+            rootRef.child(String.valueOf(mEvent.hashCode())).setValue(mEvent)
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {

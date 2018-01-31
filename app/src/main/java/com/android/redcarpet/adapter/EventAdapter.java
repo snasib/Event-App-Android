@@ -20,16 +20,13 @@ public class EventAdapter extends FirebaseListAdapter<Event> {
     private final static String TAG = EventAdapter.class.getSimpleName();
     private Context mContext;
 
-    public EventAdapter(@NonNull FirebaseListOptions<Event> options) {
+    public EventAdapter(@NonNull FirebaseListOptions<Event> options, Context context) {
         super(options);
-    }
-
-    public void setContext(Context context) {
         mContext = context;
     }
 
     @Override
-    protected void populateView(View view, Event model, int position) {
+    protected void populateView(View view, final Event model, final int position) {
         Log.i(TAG, "populateView: ");
 
         ImageView profileImage = view.findViewById(R.id.list_event_pic);
@@ -52,7 +49,7 @@ public class EventAdapter extends FirebaseListAdapter<Event> {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(mContext, EventDetailActivity.class);
-                intent.putExtra("event", event);
+                intent.putExtra("event", model);
                 mContext.startActivity(intent);
             }
         });

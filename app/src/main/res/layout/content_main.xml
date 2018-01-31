@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="16dp"
     app:layout_scrollFlags="scroll|enterAlways"
     tools:context=".MainActivity">
 
@@ -11,11 +12,9 @@
         android:id="@+id/listView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:choiceMode="multipleChoice"
         android:divider="#00000000"
-        android:dividerHeight="4dp"
+        android:dividerHeight="8dp"
         android:fadeScrollbars="true"
         android:fastScrollAlwaysVisible="true"
         android:fastScrollEnabled="true"
